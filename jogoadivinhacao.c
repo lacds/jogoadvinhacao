@@ -62,7 +62,8 @@ int main()
 		
 		tentativas++;
 		
-		double pontosperdidos = (chute - numerosecreto) / 2.0; //regra de pontuação
+		double pontosperdidos = abs(chute - numerosecreto) / (double)2; //regra de pontuação
+		
 		pontos = pontos - pontosperdidos;
 	
 	}
