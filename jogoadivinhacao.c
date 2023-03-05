@@ -8,28 +8,51 @@ int main()
 {
 	setlocale(LC_ALL, "Portuguese");
 	
-	int segundos = time(0); //semente rand - nº sempre muda
-	srand(segundos);	
-	
 	//cabeçalho
 	printf("********************************************\n\n");
 	printf("* Seja bem-vindo ao Jogo de adivinhações! *\n\n");
 	printf("********************************************\n\n");
-	printf("\nTente descobrir qual é o número secreto!\n\n");
+	printf("\nTente descobrir qual é o número secreto!\n\n\n");
 	
 	//definindo as variáveis
+	int segundos = time(0); //semente rand - nº sempre muda
+	srand(segundos);
 	
 	int numerogrande = rand(); //torna o número secreto, um número aleatório
 	
 	int numerosecreto = numerogrande % 100; //sempre retorna um número entre 0 e 99
-	
 	int chute;
-		
 	int tentativas = 1;
-	
 	double pontos = 1000; //pontuação do jogo
 	
-	while(1)
+	int acertou = 0;
+	
+	int nivel; //Menu de nível
+	printf("Em qual nível de dificuldade você quer jogar?\n\n");
+	
+	printf("\t1 - Fácil\n");
+	printf("\t2 - Médio\n");
+	printf("\t3 - Difícil\n"); 
+	printf("\nNível desejado: "); 
+	scanf("%d", &nivel);
+	
+	int numerodetentativas; //definindo nº de tentativas permitidas
+	if(nivel ==1)
+	{
+		numerodetentativas = 12;
+	}	
+	else if(nivel == 2)
+	{
+		numerodetentativas = 6;
+	}
+	else
+	{
+		numerodetentativas = 3;
+	}	
+	
+	int i = 1;
+		
+	for(i = 1; i <= numerodetentativas; i++)
 	{
 		setlocale(LC_ALL, "Portuguese");
 			
@@ -44,16 +67,14 @@ int main()
 			continue; //faz ir direto para o i++ - para execução desse trecho e deixa o for continuar os demais trechos
 		}
 			
-		int acertou = (chute == numerosecreto);
+		acertou = (chute == numerosecreto);
 		int maior = chute > numerosecreto;
 						
 		if(acertou) 
 		{
-			printf("\n\nParabéns, você acertou!\n");
-			printf("\n\nVocê é incrível!!!\n\n");
-			
 			break;
 		}
+		
 		else if(maior)
 		{
 			printf("\n\n\nAh, que pena, você errou!\n\n");
@@ -72,12 +93,25 @@ int main()
 		double pontosperdidos = abs(chute - numerosecreto) / (double)2; //regra de pontuação
 		
 		pontos = pontos - pontosperdidos;
-	
 	}
 	
-	printf("\n\nFim de jogo\n\n");
-	printf("\n\nVocê acertou em %d tentativas!\n\n", tentativas);
-	printf("\n\nTotal de pontos: %.1f\n\n", pontos);
-	
+	printf("\n\n\n\nFim de jogo.\n\n");
+		
+	if(acertou) 
+	{
+		printf("\n\nParabéns, você ganhou!\n");
+		printf("\nVocê é incrível!!!\n\n");
+		printf("\n\nVocê acertou em %d tentativas!\n\n", tentativas);
+		printf("\n\nTotal de pontos: %.1f\n\n", pontos);
+	}
+	else
+	{
+		printf("\n\n\nAh, que pena, você perdeu!\n\n");
+		printf("\nNão desista, tente novamente!\n\n\n");
+	}
+		
 }
+
+	
+
 	
