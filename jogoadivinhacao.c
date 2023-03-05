@@ -17,10 +17,10 @@ int main()
 	int numerosecreto = 42;
 		
 	int chute;
-	
+		
 	int tentativas = 1;
 	
-	int pontos = 1000; //pontuação do jogo
+	double pontos = 1000; //pontuação do jogo
 	
 	while(1)
 	{
@@ -62,14 +62,14 @@ int main()
 		
 		tentativas++;
 		
-		int pontosperdidos = (chute - numerosecreto) / 2; //regra de pontuação
+		double pontosperdidos = (chute - numerosecreto) / 2.0; //regra de pontuação
 		pontos = pontos - pontosperdidos;
 	
 	}
 	
 	printf("\n\nFim de jogo\n\n");
 	printf("\n\nVocê acertou em %d tentativas!\n\n", tentativas);
-	printf("\n\nTotal de pontos: %d\n\n", pontos);
+	printf("\n\nTotal de pontos: %.1f\n\n", pontos);
 	
 }
 	
