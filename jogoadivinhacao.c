@@ -2,10 +2,14 @@
 #include <stdlib.h> //biblioteca responsável pela alocação de espaço e memória
 #include <locale.h> //biblioteca tipografia regional
 #include <string.h> 
+#include <time.h> //lida com data e hora
 
 int main()
 {
 	setlocale(LC_ALL, "Portuguese");
+	
+	int segundos = time(0); //semente rand - nº sempre muda
+	srand(segundos);	
 	
 	//cabeçalho
 	printf("********************************************\n\n");
@@ -14,8 +18,11 @@ int main()
 	printf("\nTente descobrir qual é o número secreto!\n\n");
 	
 	//definindo as variáveis
-	int numerosecreto = 42;
-		
+	
+	int numerogrande = rand(); //torna o número secreto, um número aleatório
+	
+	int numerosecreto = numerogrande % 100; //sempre retorna um número entre 0 e 99
+	
 	int chute;
 		
 	int tentativas = 1;
