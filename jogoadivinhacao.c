@@ -9,10 +9,17 @@ int main()
 	setlocale(LC_ALL, "Portuguese");
 	
 	//cabeçalho
-	printf("********************************************\n\n");
-	printf("* Seja bem-vindo ao Jogo de adivinhações! *\n\n");
-	printf("********************************************\n\n");
-	printf("\nTente descobrir qual é o número secreto!\n\n\n");
+    printf("\n\n");
+    printf("          P  /_\\  P                              \n");
+    printf("         /_\\_|_|_/_\\                            \n");
+    printf("     n_n | ||. .|| | n_n         Bem-vindo(a) ao \n");
+    printf("     |_|_|nnnn nnnn|_|_|      Jogo de Adivinhação!\n");
+    printf("    |" "  |  |_|  |"  " |                         \n");
+    printf("    |_____| ' _ ' |_____|                         \n");
+    printf("          \\__|_|__/                              \n");
+    printf("\n\n");
+
+  
 	
 	//definindo as variáveis
 	int segundos = time(0); //semente rand - nº sempre muda
@@ -29,7 +36,6 @@ int main()
 	
 	int nivel; //Menu de nível
 	printf("Em qual nível de dificuldade você quer jogar?\n\n");
-	
 	printf("\t1 - Fácil\n");
 	printf("\t2 - Médio\n");
 	printf("\t3 - Difícil\n"); 
@@ -37,21 +43,23 @@ int main()
 	scanf("%d", &nivel);
 	
 	int numerodetentativas; //definindo nº de tentativas permitidas
-	if(nivel ==1)
-	{
-		numerodetentativas = 12;
-	}	
-	else if(nivel == 2)
-	{
-		numerodetentativas = 6;
-	}
-	else
-	{
-		numerodetentativas = 3;
-	}	
 	
 	int i = 1;
+	
+	switch(nivel)
+	{
+		case 1:
+		numerodetentativas = 12;
+		break;
 		
+		case 2:
+		numerodetentativas = 6;
+		break;
+		
+		default:
+		numerodetentativas = 3;	
+	}
+
 	for(i = 1; i <= numerodetentativas; i++)
 	{
 		setlocale(LC_ALL, "Portuguese");
@@ -99,7 +107,23 @@ int main()
 		
 	if(acertou) 
 	{
-		printf("\n\nParabéns, você ganhou!\n");
+		printf("\n\nParabéns, você ganhou!\n\n\n");
+        printf("             OOOOOOOOOOO               \n");
+        printf("         OOOOOOOOOOOOOOOOOOO           \n");
+        printf("      OOOOOO  OOOOOOOOO  OOOOOO        \n");
+        printf("    OOOOOO      OOOOO      OOOOOO      \n");
+        printf("  OOOOOOOO  #   OOOOO  #   OOOOOOOO    \n");
+        printf(" OOOOOOOOOO    OOOOOOO    OOOOOOOOOO   \n");
+        printf("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  \n");
+        printf("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  \n");
+        printf("OOOO  OOOOOOOOOOOOOOOOOOOOOOOOO  OOOO  \n");
+        printf(" OOOO  OOOOOOOOOOOOOOOOOOOOOOO  OOOO   \n");
+        printf("  OOOO   OOOOOOOOOOOOOOOOOOOO  OOOO    \n");
+        printf("    OOOOO   OOOOOOOOOOOOOOO   OOOO     \n");
+        printf("      OOOOOO   OOOOOOOOO   OOOOOO      \n");
+        printf("         OOOOOO         OOOOOO         \n");
+        printf("             OOOOOOOOOOOO              \n");
+        printf("\n\n");
 		printf("\nVocê é incrível!!!\n\n");
 		printf("\n\nVocê acertou em %d tentativas!\n\n", tentativas);
 		printf("\n\nTotal de pontos: %.1f\n\n", pontos);
@@ -107,7 +131,15 @@ int main()
 	else
 	{
 		printf("\n\n\nAh, que pena, você perdeu!\n\n");
-		printf("\nNão desista, tente novamente!\n\n\n");
+		
+        printf("       \\|/ ____ \\|/    \n");
+        printf("        @~/ ,. \\~@      \n");
+        printf("       /_( \\__/ )_\\    \n");
+        printf("          \\__U_/        \n");
+	    printf("\n\n");			
+				
+		printf("\nMas, não desista, tente novamente!\n\n\n");
+		printf("\n\n");	
 	}
 		
 }
